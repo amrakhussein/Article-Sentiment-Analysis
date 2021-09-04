@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Test</title>
+  </head>
+
+  <body>
+    <main>
+      <div class="container">
+        <h2>Enter a Valid URL for an article or a blog to be analysed</h2>     
+          <form id="form" onsubmit="return Client.handleSubmit(event)">
+            <label for="article-url">URL</label>
+            <input id="article-url" type="text" name="input" value="" placeholder="Enter Article URL here..." />
+            <button  type="submit"
+              onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)"
+            >
+              Submit
+            </button>
+          </form>
+
+          <section class="results">
+            <strong>Form Results:</strong>
+            <div id="text"></div>
+            <div id="agreement"></div>
+            <div id="subjectivity"></div>
+            <div id="confidence"></div>
+            <div id="irony"></div>
+            <div id="score_tag"></div>
+          </section>
+
+        <footer>
+          <nav id="footer">
+              <p class="footer-body">Made with love & passion</p>
+              <div class="copyright">© March 2021</div>
+          </nav>
+      </footer>
+      </div>
+    </main>
+    <script>
+
+      // Check that service workers are supported
+      if ('serviceWorker' in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+        })
+      }
+    </script>
+  </body>
+</html>
